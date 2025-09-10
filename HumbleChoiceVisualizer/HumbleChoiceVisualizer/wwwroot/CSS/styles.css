@@ -229,3 +229,33 @@ button {
         margin-left: 0 !important;
     }
 }
+
+/* Estilos para la sección de resultados */
+.results-section {
+    margin-top: 20px;
+}
+
+    .results-section #results {
+        /* El contenido mantendrá los estilos existentes */
+    }
+
+    /* Espaciado entre secciones de diferentes meses */
+    .results-section .games-grid {
+        margin-bottom: 40px;
+    }
+
+        /* Último grid sin margen inferior extra */
+        .results-section .games-grid:last-child {
+            margin-bottom: 20px;
+        }
+
+    /* Mensaje cuando no hay resultados */
+    .results-section .no-results {
+        text-align: center;
+        color: #666;
+        font-style: italic;
+        padding: 40px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }

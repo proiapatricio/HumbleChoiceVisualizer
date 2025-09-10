@@ -311,42 +311,90 @@ function displayGames(games) {
         return;
     }
 
-    // Obtener el bundleDate del primer juego
-    const bundleDate = games[0]?.bundleDate || 'Fecha no disponible';
-
-    let html = `
-        <div class="bundle-info">
-            <div class="bundle-date">📅 ${bundleDate}</div>
-        </div>
-        <div class="games-grid">
-    `;
-
+    // Agrupar juegos por bundleDate
+    const gamesByMonth = {};
     games.forEach(game => {
-        const imageHtml = game.image ?
-            `<img 
-                src="${game.image}" 
-                alt="${game.title}" 
-                class="game-image"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-                loading="lazy"
-            >
-            <div class="image-error" style="display: none;">
-                🖼️ Imagen no disponible
-            </div>` :
-            `<div class="image-error">
-                🖼️ Sin imagen
-            </div>`;
-
-        html += `
-            <div class="game-card" onclick="openGameDetails('${game.image}', '${game.title}')">
-                ${imageHtml}
-                <div class="game-title">${game.title}</div>
-            </div>
-        `;
+        const bundleDate = game.bundleDate || 'Sin fecha';
+        if (!gamesByMonth[bundleDate]) {
+            gamesByMonth[bundleDate] = [];
+        }
+        gamesByMonth[bundleDate].push(game);
     });
 
-    html += '</div>';
+    // Verificar si hay múltiples meses
+    const months = Object.keys(gamesByMonth);
+    const hasMultipleMonths = months.length > 1;
+
+    let html = '';
+
+    if (hasMultipleMonths) {
+        // Mostrar agrupado por mes
+        months.sort().forEach(bundleDate => {
+            const monthGames = gamesByMonth[bundleDate];
+
+            html += `
+                <div class="bundle-info">
+                    <div class="bundle-date">📅 ${bundleDate}</div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                        ${monthGames.length} juego${monthGames.length !== 1 ? 's' : ''}
+                    </div>
+                </div>
+                <div class="games-grid">
+            `;
+
+            monthGames.forEach(game => {
+                html += createGameCard(game);
+            });
+
+            html += '</div>';
+        });
+    } else {
+        // Mostrar normal si es un solo mes
+        const bundleDate = months[0];
+
+        html += `
+            <div class="bundle-info">
+                <div class="bundle-date">📅 ${bundleDate}</div>
+                <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                    ${games.length} juego${games.length !== 1 ? 's' : ''}
+                </div>
+            </div>
+            <div class="games-grid">
+        `;
+
+        games.forEach(game => {
+            html += createGameCard(game);
+        });
+
+        html += '</div>';
+    }
+
     document.getElementById('results').innerHTML = html;
+}
+
+// Función auxiliar para crear una tarjeta de juego
+function createGameCard(game) {
+    const imageHtml = game.image ?
+        `<img 
+            src="${game.image}" 
+            alt="${game.title}" 
+            class="game-image"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            loading="lazy"
+        >
+        <div class="image-error" style="display: none;">
+            🖼️ Imagen no disponible
+        </div>` :
+        `<div class="image-error">
+            🖼️ Sin imagen
+        </div>`;
+
+    return `
+        <div class="game-card" onclick="openGameDetails('${game.image}', '${game.title}')">
+            ${imageHtml}
+            <div class="game-title">${game.title}</div>
+        </div>
+    `;
 }
 
 // Abrir detalles del juego (imagen en nueva ventana)
