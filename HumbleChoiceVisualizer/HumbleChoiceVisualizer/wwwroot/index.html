@@ -12,13 +12,20 @@
             <h1>🎮 Visualizador de Bundle</h1>
             <p>Pega tu JSON y visualiza los juegos de forma minimalista</p>
         </div>
-
-
         <div class="input-section">
             <h2>🌐 Cargar desde endpoint:</h2>
 
-            <!-- Date picker para mes y año -->
+            <!-- Selector de tipo de endpoint -->
             <div style="margin-bottom: 15px;">
+                <label for="endpointType" style="display: block; margin-bottom: 5px; font-weight: 600;">🔗 Tipo de consulta:</label>
+                <select id="endpointType" onchange="toggleDateInputs()" style="width: 300px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+                    <option value="monthly">📅 Bundle mensual específico</option>
+                    <option value="range">📊 Todos los bundles entre fechas</option>
+                </select>
+            </div>
+
+            <!-- Date picker para mes único (bundle específico) -->
+            <div id="singleDateSection" style="margin-bottom: 15px;">
                 <label for="monthYearPicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Selecciona mes y año:</label>
                 <input type="month"
                        id="monthYearPicker"
@@ -26,26 +33,57 @@
                        style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
             </div>
 
-            <input type="url"
-                   id="endpointInput"
-                   placeholder="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames"
-                   value="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames">
+            <!-- Date pickers para rango (entre fechas) -->
+            <div id="rangeDateSection" style="margin-bottom: 15px; display: none;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div>
+                        <label for="startDatePicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Fecha inicio:</label>
+                        <input type="month"
+                               id="startDatePicker"
+                               value="2024-07"
+                               style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+                    </div>
+                    <div>
+                        <label for="endDatePicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Fecha fin:</label>
+                        <input type="month"
+                               id="endDatePicker"
+                               value="2024-08"
+                               style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- URL base (readonly, se actualiza automáticamente) -->
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">🌐 URL base:</label>
+                <input type="text"
+                       id="endpointInput"
+                       readonly
+                       value="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames"
+                       style="width: 100%; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px; background-color: #f8f9fa;">
+            </div>
+
+            <!-- Preview de URL completa -->
+            <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px; font-family: monospace; font-size: 12px; word-break: break-all;">
+                <strong>URL final:</strong><br>
+                <span id="urlPreview">Configura los parámetros para ver la URL</span>
+            </div>
 
             <div class="button-container">
                 <button onclick="fetchFromEndpoint()" id="fetchBtn">🚀 Cargar Bundle</button>
                 <button onclick="toggleManualInput()" class="secondary-button">📝 Entrada Manual</button>
             </div>
 
-            <!-- ✅ AGREGAR ESTE DIV -->
             <div id="error"></div>
-        </div>
 
-        <!-- Después del input de endpoint -->
-        <div style="margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 5px; font-family: monospace; font-size: 12px; word-break: break-all;">
-            <strong>URL final:</strong><br>
-            <span id="urlPreview">Selecciona una fecha para ver la URL</span>
+            <div id="manualSection" class="manual-section" style="display: none;">
+                <h3>📄 O pega tu JSON:</h3>
+                <textarea id="jsonInput" placeholder='Pega aquí tu JSON...'></textarea>
+                <div class="button-container">
+                    <button onclick="processJSON()">Visualizar JSON</button>
+                </div>
+            </div>
         </div>
-
 
         <div id="results"></div>
     </div>

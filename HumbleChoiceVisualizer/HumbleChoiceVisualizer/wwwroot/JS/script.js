@@ -214,18 +214,57 @@ function updateUrlPreview() {
 
 // Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function () {
-    // Configurar endpoint por defecto
-    const endpointInput = document.getElementById('endpointInput');
-    if (endpointInput && !endpointInput.value) {
-        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames';
-    }
-
-    // Agregar event listener al date picker para actualizar URL
+    // Configurar event listeners para todos los inputs
     const monthPicker = document.getElementById('monthYearPicker');
+    const startDatePicker = document.getElementById('startDatePicker');
+    const endDatePicker = document.getElementById('endDatePicker');
+    const endpointType = document.getElementById('endpointType');
+
     if (monthPicker) {
         monthPicker.addEventListener('change', updateUrlPreview);
     }
 
-    // Cargar datos iniciales (opcional - puedes comentar si no quieres carga automática)
+    if (startDatePicker) {
+        startDatePicker.addEventListener('change', updateUrlPreview);
+    }
+
+    if (endDatePicker) {
+        endDatePicker.addEventListener('change', updateUrlPreview);
+    }
+
+    if (endpointType) {
+        endpointType.addEventListener('change', updateUrlPreview);
+    }
+
+    // Configurar estado inicial
+    toggleDateInputs();
+    updateUrlPreview();
+
+    // Cargar datos iniciales (opcional)
     // fetchFromEndpoint();
 });
+
+function toggleDateInputs() {
+    const endpointType = document.getElementById('endpointType').value;
+    const singleDateSection = document.getElementById('singleDateSection');
+    const rangeDateSection = document.getElementById('rangeDateSection');
+    const endpointInput = document.getElementById('endpointInput');
+
+    console.log('Endpoint type:', endpointType);
+    console.log('Single section:', singleDateSection);
+    console.log('Range section:', rangeDateSection);
+
+    if (endpointType === 'monthly') {
+        singleDateSection.style.display = 'block';
+        rangeDateSection.style.display = 'none';
+        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames';
+        console.log('Showing single date picker');
+    } else if (endpointType === 'range') {
+        singleDateSection.style.display = 'none';
+        rangeDateSection.style.display = 'block';
+        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetAllGamesBetweenDates';
+        console.log('Showing range date pickers');
+    }
+
+    updateUrlPreview();
+}
