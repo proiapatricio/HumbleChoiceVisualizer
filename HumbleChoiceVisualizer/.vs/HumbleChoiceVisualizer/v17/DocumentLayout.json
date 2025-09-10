@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|c:\\dev\\c#\\humblechoicevisualizer\\humblechoicevisualizer\\humblechoicevisualizer\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|solutionrelative:humblechoicevisualizer\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|c:\\dev\\c#\\humblechoicevisualizer\\humblechoicevisualizer\\humblechoicevisualizer\\wwwroot\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|solutionrelative:humblechoicevisualizer\\wwwroot\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|c:\\dev\\c#\\humblechoicevisualizer\\humblechoicevisualizer\\humblechoicevisualizer\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|solutionrelative:humblechoicevisualizer\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|c:\\dev\\c#\\humblechoicevisualizer\\humblechoicevisualizer\\humblechoicevisualizer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C5071A6-5DCA-4E34-BE35-DAF314F675D1}|HumbleChoiceVisualizer\\HumbleChoiceVisualizer.csproj|solutionrelative:humblechoicevisualizer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\Program.cs",
+              "RelativeDocumentMoniker": "HumbleChoiceVisualizer\\Program.cs",
+              "ToolTip": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\Program.cs",
+              "RelativeToolTip": "HumbleChoiceVisualizer\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T15:23:30.727Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "HumbleChoiceVisualizer\\wwwroot\\index.html",
+              "ToolTip": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\index.html",
+              "RelativeToolTip": "HumbleChoiceVisualizer\\wwwroot\\index.html",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwCQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-09-10T15:24:19.105Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "script.js",
+              "DocumentMoniker": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+              "RelativeDocumentMoniker": "HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+              "ToolTip": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+              "RelativeToolTip": "HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAywN8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-10T15:43:58.288Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "styles.css",
+              "DocumentMoniker": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+              "RelativeDocumentMoniker": "HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+              "ToolTip": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+              "RelativeToolTip": "HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAOcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-10T15:26:36.11Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

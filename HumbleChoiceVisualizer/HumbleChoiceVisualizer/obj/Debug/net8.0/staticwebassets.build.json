@@ -1,0 +1,331 @@
+{
+  "Version": 1,
+  "Hash": "Xa4pam3A76grENcJYRSbBW0pnYOwMa3Y5+glWOORcBs=",
+  "Source": "HumbleChoiceVisualizer",
+  "BasePath": "_content/HumbleChoiceVisualizer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HumbleChoiceVisualizer\\wwwroot",
+      "Source": "HumbleChoiceVisualizer",
+      "ContentRoot": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\",
+      "BasePath": "_content/HumbleChoiceVisualizer",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+      "SourceId": "HumbleChoiceVisualizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\",
+      "BasePath": "_content/HumbleChoiceVisualizer",
+      "RelativePath": "CSS/styles#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k4x1yz00j0",
+      "Integrity": "9CuwNtQu9YcyM7mdCCIm5H/PUgVmnhwT/l4dm3p5QkU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CSS\\styles.css"
+    },
+    {
+      "Identity": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\index.html",
+      "SourceId": "HumbleChoiceVisualizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\",
+      "BasePath": "_content/HumbleChoiceVisualizer",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mxlxf288jz",
+      "Integrity": "SiQXnkFQTZQDdYEulXRCjS86YLxCu/nlCtEqMr2TOUU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+      "SourceId": "HumbleChoiceVisualizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\",
+      "BasePath": "_content/HumbleChoiceVisualizer",
+      "RelativePath": "JS/script#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "thnaynmcfb",
+      "Integrity": "cRPlrAe70gNk0BWj2gD9gxW+K866ihW9kzTuPibpzEg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JS\\script.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "CSS/styles.css",
+      "AssetFile": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4486"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9CuwNtQu9YcyM7mdCCIm5H/PUgVmnhwT/l4dm3p5QkU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Sep 2025 15:26:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9CuwNtQu9YcyM7mdCCIm5H/PUgVmnhwT/l4dm3p5QkU="
+        }
+      ]
+    },
+    {
+      "Route": "CSS/styles.k4x1yz00j0.css",
+      "AssetFile": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4486"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9CuwNtQu9YcyM7mdCCIm5H/PUgVmnhwT/l4dm3p5QkU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Sep 2025 15:26:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4x1yz00j0"
+        },
+        {
+          "Name": "label",
+          "Value": "CSS/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9CuwNtQu9YcyM7mdCCIm5H/PUgVmnhwT/l4dm3p5QkU="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2188"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiQXnkFQTZQDdYEulXRCjS86YLxCu/nlCtEqMr2TOUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Sep 2025 19:36:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiQXnkFQTZQDdYEulXRCjS86YLxCu/nlCtEqMr2TOUU="
+        }
+      ]
+    },
+    {
+      "Route": "index.mxlxf288jz.html",
+      "AssetFile": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2188"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiQXnkFQTZQDdYEulXRCjS86YLxCu/nlCtEqMr2TOUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Sep 2025 19:36:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mxlxf288jz"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiQXnkFQTZQDdYEulXRCjS86YLxCu/nlCtEqMr2TOUU="
+        }
+      ]
+    },
+    {
+      "Route": "JS/script.js",
+      "AssetFile": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7630"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cRPlrAe70gNk0BWj2gD9gxW+K866ihW9kzTuPibpzEg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Sep 2025 19:35:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cRPlrAe70gNk0BWj2gD9gxW+K866ihW9kzTuPibpzEg="
+        }
+      ]
+    },
+    {
+      "Route": "JS/script.thnaynmcfb.js",
+      "AssetFile": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7630"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cRPlrAe70gNk0BWj2gD9gxW+K866ihW9kzTuPibpzEg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 10 Sep 2025 19:35:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "thnaynmcfb"
+        },
+        {
+          "Name": "label",
+          "Value": "JS/script.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cRPlrAe70gNk0BWj2gD9gxW+K866ihW9kzTuPibpzEg="
+        }
+      ]
+    }
+  ]
+}

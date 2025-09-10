@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador JSON - Bundle Games</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Visualizador de Bundle</h1>
+            <p>Pega tu JSON y visualiza los juegos de forma minimalista</p>
+        </div>
+
+
+        <div class="input-section">
+            <h2>🌐 Cargar desde endpoint:</h2>
+
+            <!-- Date picker para mes y año -->
+            <div style="margin-bottom: 15px;">
+                <label for="monthYearPicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Selecciona mes y año:</label>
+                <input type="month"
+                       id="monthYearPicker"
+                       value="2024-07"
+                       style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+            </div>
+
+            <input type="url"
+                   id="endpointInput"
+                   placeholder="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames"
+                   value="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames">
+
+            <div class="button-container">
+                <button onclick="fetchFromEndpoint()" id="fetchBtn">🚀 Cargar Bundle</button>
+                <button onclick="toggleManualInput()" class="secondary-button">📝 Entrada Manual</button>
+            </div>
+
+            <!-- ✅ AGREGAR ESTE DIV -->
+            <div id="error"></div>
+        </div>
+
+        <!-- Después del input de endpoint -->
+        <div style="margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 5px; font-family: monospace; font-size: 12px; word-break: break-all;">
+            <strong>URL final:</strong><br>
+            <span id="urlPreview">Selecciona una fecha para ver la URL</span>
+        </div>
+
+
+        <div id="results"></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

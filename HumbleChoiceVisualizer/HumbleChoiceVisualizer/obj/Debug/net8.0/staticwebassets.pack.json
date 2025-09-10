@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\CSS\\styles.css",
+      "PackagePath": "staticwebassets\\CSS\\styles.css"
+    },
+    {
+      "Id": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\JS\\script.js",
+      "PackagePath": "staticwebassets\\JS\\script.js"
+    },
+    {
+      "Id": "C:\\DEV\\C#\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\HumbleChoiceVisualizer\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HumbleChoiceVisualizer.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HumbleChoiceVisualizer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.HumbleChoiceVisualizer.props",
+      "PackagePath": "build\\HumbleChoiceVisualizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.HumbleChoiceVisualizer.props",
+      "PackagePath": "buildMultiTargeting\\HumbleChoiceVisualizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.HumbleChoiceVisualizer.props",
+      "PackagePath": "buildTransitive\\HumbleChoiceVisualizer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
