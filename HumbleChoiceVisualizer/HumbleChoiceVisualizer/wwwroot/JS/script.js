@@ -1,37 +1,183 @@
-﻿// Función para construir la URL con el mes seleccionado
+﻿// Variable global para almacenar datos en memoria
+let gameDataCache = {
+    data: [],
+    originalData: [],
+    lastQuery: '',
+    isFiltered: false
+};
+
+// Función para guardar datos en caché
+function saveToCache(data, query) {
+    gameDataCache.data = [...data];
+    gameDataCache.originalData = [...data];
+    gameDataCache.lastQuery = query;
+    gameDataCache.isFiltered = false;
+
+    console.log(`Datos guardados en caché: ${data.length} juegos`);
+
+    // Mostrar contador de juegos en caché y sección de búsqueda
+    updateCacheInfo();
+    showSearchSection();
+}
+
+// Función para actualizar información del caché
+function updateCacheInfo() {
+    const cacheInfo = document.getElementById('cacheInfo');
+    if (cacheInfo && gameDataCache.data.length > 0) {
+        const totalGames = gameDataCache.originalData.length;
+        const currentGames = gameDataCache.data.length;
+        const isFiltered = gameDataCache.isFiltered;
+
+        cacheInfo.innerHTML = `
+            <div style="background: #e3f2fd; padding: 10px; border-radius: 5px; font-size: 14px;">
+                💾 <strong>En caché:</strong> ${totalGames} juegos total
+                ${isFiltered ? `| 🔍 <strong>Filtrados:</strong> ${currentGames} juegos` : ''}
+                | 📅 <strong>Última consulta:</strong> ${gameDataCache.lastQuery}
+            </div>
+        `;
+        cacheInfo.style.display = 'block';
+    } else if (cacheInfo) {
+        cacheInfo.style.display = 'none';
+    }
+}
+
+// Función para mostrar/ocultar sección de búsqueda
+function showSearchSection() {
+    const searchSection = document.getElementById('searchSection');
+    if (searchSection) {
+        searchSection.style.display = gameDataCache.data.length > 0 ? 'block' : 'none';
+    }
+}
+
+// Función para buscar en los datos cacheados
+function searchInCache() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+
+    if (!searchTerm) {
+        // Si no hay término de búsqueda, mostrar todos los datos originales
+        gameDataCache.data = [...gameDataCache.originalData];
+        gameDataCache.isFiltered = false;
+    } else {
+        // Filtrar por título que contenga el término de búsqueda
+        gameDataCache.data = gameDataCache.originalData.filter(game =>
+            game.title.toLowerCase().includes(searchTerm)
+        );
+        gameDataCache.isFiltered = true;
+    }
+
+    updateCacheInfo();
+    displayGames(gameDataCache.data);
+}
+
+// Función para limpiar caché
+function clearCache() {
+    gameDataCache = {
+        data: [],
+        originalData: [],
+        lastQuery: '',
+        isFiltered: false
+    };
+
+    updateCacheInfo();
+    showSearchSection();
+    document.getElementById('results').innerHTML = '';
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+
+    console.log('Caché limpiado');
+}
+
+// Función para alternar entre inputs de fecha según el tipo de endpoint
+function toggleDateInputs() {
+    const endpointType = document.getElementById('endpointType').value;
+    const singleDateSection = document.getElementById('singleDateSection');
+    const rangeDateSection = document.getElementById('rangeDateSection');
+    const endpointInput = document.getElementById('endpointInput');
+
+    if (endpointType === 'monthly') {
+        // Mostrar solo un date picker para bundle mensual
+        singleDateSection.style.display = 'block';
+        rangeDateSection.style.display = 'none';
+        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames';
+    } else if (endpointType === 'range') {
+        // Mostrar dos date pickers para rango entre fechas
+        singleDateSection.style.display = 'none';
+        rangeDateSection.style.display = 'block';
+        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetAllGamesBetweenDates';
+    }
+
+    updateUrlPreview();
+}
+
+// Función para construir la URL según el tipo de endpoint seleccionado
 function buildApiUrl() {
+    const endpointType = document.getElementById('endpointType').value;
     const baseUrl = document.getElementById('endpointInput').value.trim();
-    const monthYear = document.getElementById('monthYearPicker').value; // Formato: "2024-07"
 
     if (!baseUrl) {
         return '';
     }
 
-    if (!monthYear) {
-        return baseUrl;
-    }
-
-    // Convertir "2024-07" a "july-2024"
-    const [year, month] = monthYear.split('-');
-    const monthNames = {
-        '01': 'january', '02': 'february', '03': 'march', '04': 'april',
-        '05': 'may', '06': 'june', '07': 'july', '08': 'august',
-        '09': 'september', '10': 'october', '11': 'november', '12': 'december'
-    };
-
-    const monthName = monthNames[month];
-    const formattedMonth = `${monthName}-${year}`;
-
-    // Construir URL completa
     const url = new URL(baseUrl);
-    url.searchParams.set('month', formattedMonth);
-    url.searchParams.set('showShortFormat', 'true');
-    url.searchParams.set('showFullResponse', 'true');
+
+    if (endpointType === 'monthly') {
+        // Endpoint de bundle mensual específico
+        const monthYear = document.getElementById('monthYearPicker').value;
+
+        if (monthYear) {
+            const [year, month] = monthYear.split('-');
+            const monthNames = {
+                '01': 'january', '02': 'february', '03': 'march', '04': 'april',
+                '05': 'may', '06': 'june', '07': 'july', '08': 'august',
+                '09': 'september', '10': 'october', '11': 'november', '12': 'december'
+            };
+
+            const monthName = monthNames[month];
+            const formattedMonth = `${monthName}-${year}`;
+
+            url.searchParams.set('month', formattedMonth);
+            url.searchParams.set('showShortFormat', 'true');
+            url.searchParams.set('showFullResponse', 'true');
+        }
+    } else {
+        // Endpoint de rango entre fechas
+        const startDate = document.getElementById('startDatePicker').value;
+        const endDate = document.getElementById('endDatePicker').value;
+
+        if (startDate && endDate) {
+            const formatDate = (dateValue) => {
+                const [year, month] = dateValue.split('-');
+                const monthNames = {
+                    '01': 'january', '02': 'february', '03': 'march', '04': 'april',
+                    '05': 'may', '06': 'june', '07': 'july', '08': 'august',
+                    '09': 'september', '10': 'october', '11': 'november', '12': 'december'
+                };
+                const monthName = monthNames[month];
+                return `${monthName}-${year}`;
+            };
+
+            url.searchParams.set('startDate', formatDate(startDate));
+            url.searchParams.set('endDate', formatDate(endDate));
+            url.searchParams.set('showShortFormat', 'true');
+        }
+    }
 
     return url.toString();
 }
 
-// Función para cargar desde endpoint (modificada para usar el date picker)
+// Función para actualizar preview de URL
+function updateUrlPreview() {
+    const url = buildApiUrl();
+    const preview = document.getElementById('urlPreview');
+    if (preview) {
+        preview.textContent = url || 'Configura los parámetros para ver la URL';
+    }
+    console.log('URL actualizada:', url);
+}
+
+// Función para cargar desde endpoint (modificada para usar el date picker y caché)
 async function fetchFromEndpoint() {
     const errorDiv = document.getElementById('error');
     const resultsDiv = document.getElementById('results');
@@ -45,7 +191,7 @@ async function fetchFromEndpoint() {
     const url = buildApiUrl();
 
     if (!url) {
-        showError('Por favor, ingresa una URL base válida');
+        showError('Por favor, configura los parámetros de fecha');
         return;
     }
 
@@ -76,6 +222,9 @@ async function fetchFromEndpoint() {
         }
 
         displayGames(data.data);
+
+        // ✅ Guardar en caché después de cargar exitosamente
+        saveToCache(data.data, url);
 
     } catch (error) {
         console.error('Error:', error);
@@ -135,6 +284,9 @@ async function processJSON() {
         }
 
         displayGames(data.data);
+
+        // ✅ Guardar en caché después de cargar exitosamente
+        saveToCache(data.data, apiUrl);
 
     } catch (error) {
         console.error('Error:', error);
@@ -206,12 +358,6 @@ function openGameDetails(imageUrl, title) {
     }
 }
 
-// Función para actualizar preview de URL cuando cambia el date picker (opcional)
-function updateUrlPreview() {
-    const url = buildApiUrl();
-    console.log('URL actualizada:', url);
-}
-
 // Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function () {
     // Configurar event listeners para todos los inputs
@@ -240,31 +386,9 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleDateInputs();
     updateUrlPreview();
 
+    // Ocultar sección de búsqueda al inicio
+    showSearchSection();
+
     // Cargar datos iniciales (opcional)
     // fetchFromEndpoint();
 });
-
-function toggleDateInputs() {
-    const endpointType = document.getElementById('endpointType').value;
-    const singleDateSection = document.getElementById('singleDateSection');
-    const rangeDateSection = document.getElementById('rangeDateSection');
-    const endpointInput = document.getElementById('endpointInput');
-
-    console.log('Endpoint type:', endpointType);
-    console.log('Single section:', singleDateSection);
-    console.log('Range section:', rangeDateSection);
-
-    if (endpointType === 'monthly') {
-        singleDateSection.style.display = 'block';
-        rangeDateSection.style.display = 'none';
-        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames';
-        console.log('Showing single date picker');
-    } else if (endpointType === 'range') {
-        singleDateSection.style.display = 'none';
-        rangeDateSection.style.display = 'block';
-        endpointInput.value = 'https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetAllGamesBetweenDates';
-        console.log('Showing range date pickers');
-    }
-
-    updateUrlPreview();
-}

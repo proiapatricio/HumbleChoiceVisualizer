@@ -12,6 +12,7 @@
             <h1>🎮 Visualizador de Bundle</h1>
             <p>Pega tu JSON y visualiza los juegos de forma minimalista</p>
         </div>
+
         <div class="input-section">
             <h2>🌐 Cargar desde endpoint:</h2>
 
@@ -24,46 +25,33 @@
                 </select>
             </div>
 
-            <!-- Date picker para mes único (bundle específico) -->
+            <!-- Date picker para mes único -->
             <div id="singleDateSection" style="margin-bottom: 15px;">
                 <label for="monthYearPicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Selecciona mes y año:</label>
-                <input type="month"
-                       id="monthYearPicker"
-                       value="2024-07"
-                       style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+                <input type="month" id="monthYearPicker" value="2024-07" style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
             </div>
 
-            <!-- Date pickers para rango (entre fechas) -->
+            <!-- Date pickers para rango -->
             <div id="rangeDateSection" style="margin-bottom: 15px; display: none;">
                 <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                     <div>
                         <label for="startDatePicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Fecha inicio:</label>
-                        <input type="month"
-                               id="startDatePicker"
-                               value="2024-07"
-                               style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+                        <input type="month" id="startDatePicker" value="2024-07" style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
                     </div>
                     <div>
                         <label for="endDatePicker" style="display: block; margin-bottom: 5px; font-weight: 600;">📅 Fecha fin:</label>
-                        <input type="month"
-                               id="endDatePicker"
-                               value="2024-08"
-                               style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
+                        <input type="month" id="endDatePicker" value="2024-08" style="width: 200px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;">
                     </div>
                 </div>
             </div>
 
-            <!-- URL base (readonly, se actualiza automáticamente) -->
+            <!-- URL base -->
             <div style="margin-bottom: 15px;">
                 <label style="display: block; margin-bottom: 5px; font-weight: 600;">🌐 URL base:</label>
-                <input type="text"
-                       id="endpointInput"
-                       readonly
-                       value="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames"
-                       style="width: 100%; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px; background-color: #f8f9fa;">
+                <input type="text" id="endpointInput" readonly value="https://humblechoicescrapper.onrender.com/api/HumbleChoice/GetMothlyGames" style="width: 100%; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px; background-color: #f8f9fa;">
             </div>
 
-            <!-- Preview de URL completa -->
+            <!-- Preview de URL -->
             <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px; font-family: monospace; font-size: 12px; word-break: break-all;">
                 <strong>URL final:</strong><br>
                 <span id="urlPreview">Configura los parámetros para ver la URL</span>
@@ -82,6 +70,31 @@
                 <div class="button-container">
                     <button onclick="processJSON()">Visualizar JSON</button>
                 </div>
+            </div>
+        </div>
+
+        <!-- ✅ Nueva sección de búsqueda en caché -->
+        <div class="input-section" id="searchSection" style="display: none;">
+            <h2>🔍 Buscar en datos cargados:</h2>
+
+            <!-- Info del caché -->
+            <div id="cacheInfo" style="margin-bottom: 15px; display: none;"></div>
+
+            <!-- Campo de búsqueda -->
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <input type="text"
+                       id="searchInput"
+                       placeholder="Buscar por título del juego..."
+                       style="flex: 1; min-width: 250px; padding: 10px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 14px;"
+                       onkeyup="searchInCache()"
+                       onkeypress="if(event.key==='Enter') searchInCache()">
+
+                <button onclick="searchInCache()" style="padding: 10px 20px;">🔍 Buscar</button>
+                <button onclick="clearCache()" style="padding: 10px 20px; background: #dc3545;">🗑️ Limpiar</button>
+            </div>
+
+            <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                💡 La búsqueda es en tiempo real mientras escribes
             </div>
         </div>
 
